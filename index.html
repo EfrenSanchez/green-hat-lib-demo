@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Green Hat Lib</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/green-hat-lib@0.4.4/dist/base.b2bb851a.min.css">
+
+<script src="https://cdn.jsdelivr.net/npm/green-hat-lib@0.4.4/dist/greenhat.d52d4386.min.js"></script>
+
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__image"></div>
+      <div class="header__text">
+        <h1 class="header__title">Green Hat Library</h1>
+        <p class="header__description">A library of web components.</p>
+      </div>
+    </header>
+
+    <section class="component">
+      <h2 class="component__title">🥊 Button</h2>
+      <div class="block">
+        <h4 class="block__title">Types</h4>
+        <div class="block__content">
+          <gh-button type="primary" size="medium">Primary Button</gh-button>
+          <gh-button type="secundary" size="medium">Secundary Button</gh-button>
+        </div>
+      </div>
+
+      <div class="block">
+        <h4 class="block__title">Sizes</h4>
+        <div class="block__content">
+          <gh-button type="primary" size="small">Small Button</gh-button>
+          <gh-button type="primary" size="medium">Medium Button</gh-button>
+          <gh-button type="primary" size="large">Large Button</gh-button>
+        </div>
+      </div>
+
+      <div class="block">
+        <h4 class="block__title">Others</h4>
+        <caption>
+          Loading button
+        </caption>
+        <div class="block__content">
+          <gh-button type="secundary" size="medium" loading
+            >Loading Button</gh-button
+          >
+        </div>
+
+        <caption>
+          Arrow button
+        </caption>
+        <div class="block__content">
+          <gh-button type="secundary" size="medium" arrow
+            >Arrow Button</gh-button
+          >
+        </div>
+
+        <caption>
+          Disabled button
+        </caption>
+        <div class="block__content">
+          <gh-button type="secundary" size="medium" disabled
+            >Disabled Button</gh-button
+          >
+          <gh-button type="primary" size="medium" disabled
+            >Disabled Button</gh-button
+          >
+        </div>
+      </div>
+    </section>
+
+    <section class="component">
+      <h2 class="component__title">🏋️‍♀️ Dropdown</h2>
+
+      <div class="block">
+        <h4 class="block__title">4 Options</h4>
+        <div class="block__content">
+          <gh-dropdown options='["Hello", "World", "Foo", "Bar"]'></gh-dropdown>
+        </div>
+      </div>
+
+      <div class="block">
+        <h4 class="block__title">Scrollable List</h4>
+        <div class="block__content">
+          <gh-dropdown
+            options='["One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten"]'
+          ></gh-dropdown>
+        </div>
+      </div>
+
+      <div class="block">
+        <h4 class="block__title">Loading Dropdown</h4>
+        <div class="block__content">
+          <gh-dropdown
+            loading
+            options='["Hello", "World", "Foo", "Bar", "Five"]'
+          ></gh-dropdown>
+        </div>
+      </div>
+    </section>
+
+    <section class="component">
+      <h2 class="component__title">🏓 Table</h2>
+
+      <div class="block">
+        <h4 class="block__title">Full</h4>
+        <div class="block__content">
+          <gh-datatable id="full-table"></gh-datatable>
+        </div>
+      </div>
+
+      <div class="block">
+        <h4 class="block__title">Collapsed</h4>
+        <div class="block__content" style="max-width: 500px; margin: auto">
+          <gh-datatable id="collapsed-table"></gh-datatable>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <a
+        class="footer__link"
+        href="https://github.com/EfrenSanchez/green-hat-lib.git"
+        target="_blank"
+        rel="noopener noreferrer"
+        >GitHub Repository</a
+      >
+    </footer>
+    <script src="../src/greenhat.ts"></script>
+    <script>
+      const fullTable = document.querySelector("gh-datatable#full-table");
+      const collapsedTable = document.querySelector(
+        "gh-datatable#collapsed-table"
+      );
+
+      let initialConf = [
+        {
+          property: "tier",
+          header: "Tier",
+        },
+        {
+          property: "match",
+          header: "Match",
+        },
+        {
+          property: "winners",
+          header: "Winners",
+        },
+        {
+          property: "amount",
+          header: "Amount",
+        },
+      ];
+
+      fullTable.conf = initialConf;
+      collapsedTable.conf = initialConf;
+
+      let initialData = [
+        {
+          tier: 1,
+          match: "5 Numbers + 2 Euronumbersreen",
+          winners: "0x",
+          amount: "£66,993,966.00",
+        },
+        {
+          tier: 2,
+          match: "5 Numbers + 1 Euronumber",
+          winners: "6x",
+          amount: "£438,673.57",
+        },
+        {
+          tier: 3,
+          match: "5 Numbers + 0 Euronumbers",
+          winners: "8x",
+          amount: "£116,119.44",
+        },
+        {
+          tier: 4,
+          match: "4 Numbers + 2 Euronumbers",
+          winners: "104x",
+          amount: "£2,977.37",
+        },
+      ];
+
+      fullTable.data = initialData;
+      collapsedTable.data = initialData;
+    </script>
+  </body>
+</html>
